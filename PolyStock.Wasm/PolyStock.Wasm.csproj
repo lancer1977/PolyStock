@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <WasmHead>true</WasmHead>
+    <DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+    <NoWarn>NU1701</NoWarn>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'RpnCalculator.Wasm' " />
+  <ItemGroup>
+    <Content Include="..\PolyStock.UWP\Assets\*.png" Link="Assets\%(FileName)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WasmCSS\Fonts.css" />
+    <EmbeddedResource Include="WasmScripts\AppManifest.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <LinkerDescriptor Include="LinkerConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Note that for WebAssembly version 1.1.1 of the console logger required -->
+
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="CsvHelper" Version="19.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.2" />
+    <PackageReference Include="PolyhydraGames.Core.SQLite" Version="2.0.0.20" />
+    <PackageReference Include="ReactiveUI" Version="13.0.38" />
+    <PackageReference Include="ReactiveUI.Uno" Version="13.0.38" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.4.0.34" />
+    <PackageReference Include="Uno.UI.WebAssembly" Version="3.4.0" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.3.6" />
+    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="1.3.6" />
+    <PackageReference Include="Uno.Xamarin.Forms.Platform" Version="4.5.0-uno.569" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1874" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PolyStock\PolyStock.csproj" />
+  </ItemGroup>
+  <Import Project="..\PolyStock.UWP\PolyStock.Uwp.Shared.projitems" Label="Shared" />
+</Project>

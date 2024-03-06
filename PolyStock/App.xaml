@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:converters="clr-namespace:PolyStock.Converters;assembly=PolyStock"
+             xmlns:base="clr-namespace:PolyhydraGames.Core.Forms;assembly=PolyhydraGames.Core.Forms"
+             mc:Ignorable="d"
+             x:Class="PolyStock.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <converters:StringToTrackingTypeConverter x:Key="StringToTrackingTypeConverter" />
+            <x:String x:Key="font">FuturaBold</x:String>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style  TargetType="Label">
+                <Setter  Property="FontFamily" Value="{DynamicResource font} "/>
+            </Style>
+            <Style  TargetType="ContentPage">
+                <Setter  Property="Visual" Value="Material" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</base:BaseApplication>

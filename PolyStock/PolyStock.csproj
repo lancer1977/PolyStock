@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="AlphaVantage.Net.Stocks" Version="2.0.1" />
+    <PackageReference Include="CsvHelper" Version="15.0.10" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.1.0" />
+    <PackageReference Include="Microsoft.AppCenter.Distribute" Version="4.1.0" />
+    <PackageReference Include="PolyhydraGames.Extensions" Version="2.1.0.6" />
+    <PackageReference Include="ReactiveUI" Version="13.1.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="13.1.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.4.0.34" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.1931" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="PolyhydraGames.Core" Version="3.0.1.5" />
+    <PackageReference Include="PolyhydraGames.Core.Forms" Version="3.0.2.6" />
+    <PackageReference Include="PolyhydraGames.Core.SQLite" Version="2.0.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\About\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Stock\AddBasis\AddBasisPage.xaml.cs">
+      <DependentUpon>AddBasisPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Stock\StockPage.xaml.cs">
+      <DependentUpon>StockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Stock\Unused\StockControlLite.xaml.cs">
+      <DependentUpon>StockControlLite.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Stock\StockControl.xaml.cs">
+      <DependentUpon>StockControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Folder Include="Setup\" />
+    <Folder Include="Views\Abstract\" />
+    <Folder Include="Views\Settings\Save\" />
+    <Folder Include="Services\QuoteReader\" />
+    <Folder Include="Views\Stock\Sort\" />
+  </ItemGroup>
+ 
+</Project>

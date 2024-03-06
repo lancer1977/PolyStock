@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<controls:PopupPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                        xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                        xmlns:controls="clr-namespace:PolyhydraGames.Core.Forms.Controls;assembly=PolyhydraGames.Core.Forms"
+                        x:Class="PolyStock.Views.Stock.Add.AddPage"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                        xmlns:d ="http://schemas.microsoft.com/expression/blend/2008" 
+                        mc:Ignorable="d" 
+                  
+                        
+                        >
+
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#9cdaf1" />
+                <Setter Property="TextColor" Value="#7dbbe6" />
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            PositionIn="Bottom" 
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="1"
+            DurationIn="300"
+            DurationOut="300" />
+    </pages:PopupPage.Animation>
+
+    <Frame HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White" Margin="15">
+
+        <StackLayout
+            IsClippedToBounds="True" 
+            Spacing="3"
+            BackgroundColor="White">
+            <Label Text="Symbol:" VerticalTextAlignment="End" />
+            <Entry Text="{Binding Symbol}"/>
+
+            <Label Text="Date:" VerticalTextAlignment="End" />
+            <DatePicker Date="{Binding TransactionDate}"/>
+
+            <Label Text="Quantity:" VerticalTextAlignment="End" />
+            <Entry Text="{Binding Quantity}" Keyboard="Numeric"/>
+
+            <Label Text="Price:" VerticalTextAlignment="End" />
+            <Entry Text="{Binding Price}" Keyboard="Numeric"/>
+            <Switch IsToggled="{Binding IsSell}"/>
+            <Label Text="{Binding TransactionType}"></Label>
+            <BoxView HeightRequest="2" HorizontalOptions="FillAndExpand" /> 
+            
+ 
+            <!-- Dialog Buttons -->
+            <StackLayout Orientation="Horizontal">
+                <Button Text=" Cancel "
+                        BorderColor="Transparent"
+                        BorderRadius="11"
+                        BorderWidth="2"
+                        Command="{Binding CancelCommand}" />
+                <Button Text="  Ok  "
+                        BorderColor="Transparent"
+                        BorderRadius="11"
+                        BorderWidth="2"
+                        Command="{Binding OKCommand}" />
+           
+            </StackLayout>
+
+
+        </StackLayout>
+    </Frame>
+
+</controls:PopupPageBase>

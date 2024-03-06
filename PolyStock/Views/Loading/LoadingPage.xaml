@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:Class="PolyStock.Views.Loading.LoadingPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+
+
+
+       
+            <Label Text="{Binding Version,StringFormat='Version: {0}'}" />
+
+            <ActivityIndicator Margin="0,40,0,0" IsRunning="{Binding IsBusy}"  IsVisible="{Binding IsBusy}" Color="Red" />
+
+            <StackLayout Orientation="Horizontal">
+              <Label Text="Font: "></Label>  <Picker ItemsSource="{Binding FontNames}" SelectedItem="{Binding Font}"/>
+            </StackLayout>
+
+            <Button Command="{Binding TestCommand}" Text="Get Stock" />
+            <!--<Button Command="{Binding AddEstimateCommand}" Text="Add 2 Week Projections"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

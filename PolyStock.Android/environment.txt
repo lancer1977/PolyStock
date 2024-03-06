@@ -1,0 +1,10 @@
+MONO_LOG_LEVEL=error
+{
+    {
+    "Symbol":"",
+    "CostBasis":"",
+    "Quantity":"",
+    "Tracking":"Purchase"
+    }
+}
+ 

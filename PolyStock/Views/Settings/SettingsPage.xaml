@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PolyStock.Views.Settings.SettingsPage">
+
+    <TableView>
+              <TableRoot>
+              <TableSection Title="Data">
+                  <ViewCell>
+                      <Button Text="Load" Command="{Binding LoadCommand}" />
+                       </ViewCell>
+                  <ViewCell>
+                      <Button Text="Save" Command="{Binding SaveCommand}" />
+                  </ViewCell>
+                  </TableSection>
+
+              <TableSection Title="API">
+                    <EntryCell Text="{Binding ApiKey}" IsEnabled="{Binding IsKeyUnlocked}"/>
+                    <SwitchCell Text="{Binding IsKeyUnlocked}"/>
+                  </TableSection>
+                                    
+      
+
+
+                  </TableRoot>
+    </TableView>
+</ContentPage>

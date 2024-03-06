@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+
+             x:Class="PolyStock.Views.Stock.StockControl"
+             >
+    <Frame  Padding="15" >
+     
+
+
+        <Grid ColumnDefinitions="*, *, *, *, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" >
+            <Grid.Triggers>
+                <DataTrigger TargetType="Grid" Binding="{Binding IsProfit}" Value="true">
+                    <Setter Property="BackgroundColor" Value="Green" />
+                </DataTrigger>
+                <DataTrigger TargetType="Grid" Binding="{Binding IsLoss}" Value="true">
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </DataTrigger> 
+            </Grid.Triggers>
+            <Label Grid.Row="0" Grid.Column="0" FontSize="12" FontAttributes="Bold" Text="{Binding Symbol}"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="Price"/>
+            <Label  Grid.Row="0" Grid.Column="2"  Text="Change"/>
+            <Label  Grid.Row="0" Grid.Column="3"  Text="Change %"/>
+            <Label  Grid.Row="0" Grid.Column="4"  Text="Recommendation"/>
+ 
+            
+            <Label Grid.Column="4" Grid.Row="1" Grid.RowSpan="4" Text="{Binding Recommendation}" />
+
+
+
+            <!--<Label Grid.Row="1" Grid.Column="0"  FontSize="12" Text="Last Purchase"/>-->
+            <Label Grid.Row="1" Grid.Column="1"  FontSize="12" Text="{Binding Price}"/>
+            <Label  Grid.Row="1" Grid.Column="2"  FontSize="12" Text="{Binding Change}" />
+            <Label  Grid.Row="1" Grid.Column="3"  FontSize="12" Text="{Binding ChangePercent}" /> 
+
+            <Label Grid.Row="2" Grid.Column="0"  FontSize="12" IsVisible="{Binding ShowCost}" Text="{Binding TrackingTitle}"/>
+            <Label Grid.Row="2" Grid.Column="1"  FontSize="12" IsVisible="{Binding ShowCost}" Text="Basis"/>
+            <Label Grid.Row="2" Grid.Column="3"  FontSize="12" IsVisible="{Binding ShowValue}" Text="Value" />
+            <Label Grid.Row="2" Grid.Column="2"  FontSize="12" IsVisible="{Binding ShowQuantity}" Text="Quantity" />
+            <!--<Label  Grid.Row="2" Grid.Column="4"  FontSize="12" Text="{Binding DeadRiskRate, StringFormat='{0:0.###}%'}" />-->
+
+            <Label Grid.Row="3" Grid.Column="1"  FontSize="12" IsVisible="{Binding ShowCost}" Text="{Binding OwnedCostBasis, StringFormat='{0:0.##}'}"/>
+            <Label Grid.Row="3" Grid.Column="2"  FontSize="12" IsVisible="{Binding ShowQuantity}" Text="{Binding OwnedQuantity, StringFormat='{0:0}'}" />
+            <Label Grid.Row="3" Grid.Column="3"  FontSize="12" IsVisible="{Binding ShowValue}" Text="{Binding OwnedValue, StringFormat='{0:0.##}'}" />
+            
+            
+            <!--<Label Grid.Row="3" Grid.Column="0"  FontSize="12" Text="Basis" />
+            <Label  Grid.Row="3" Grid.Column="1"  FontSize="12" Text="{Binding PopulationText}" />
+            <Label Grid.Row="3" Grid.Column="2"  FontSize="12" Text="Mortality"/>
+            <Label  Grid.Row="3" Grid.Column="3"  FontSize="12" Text="{Binding MortalityRate, StringFormat='{0:0.##}%'}" />
+
+            <Label  Grid.Row="3" Grid.Column="4"  FontSize="12" Text="{Binding Rank, StringFormat='Rnk. {0:0}'}" />-->
+
+ 
+
+ 
+
+            <ActivityIndicator Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="Black" 
+                                IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+            />
+            <BoxView  Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="6"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                      IsVisible="{Binding IsBusy}" Opacity=".7" Color="Black" />
+        </Grid>
+
+
+
+    </Frame>
+
+</ViewCell>
